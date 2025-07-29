@@ -26,7 +26,7 @@ class Test2Fragment : Fragment() {
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("backstack size","${findNavController().currentBackStack.value.size}")
+        
     }
 
 }

@@ -47,9 +47,9 @@ class TestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-                Log.e("time","after waiting")
+
                 binding.btnClick.setOnClickListener {
-                    Log.e("in event","button click")
+
 
                         viewModel.sendEvent(Event.NavigateToTestFragment2)
 
@@ -57,29 +57,17 @@ class TestFragment : Fragment() {
 
 
                 }
-        Log.e("in event pop","${findNavController().currentBackStack.value}")
 
         lifecycleScope.launch {
 
-
-
-                Log.e(
-                    "in event",
-                    "in lifecycle "
-                )
                 viewModel.eventStateFlow
                     .collect { event ->
-                        Log.e("in event collect", "yes")
                         when (event) {
                             Event.Ideal -> {
                                 Log.e("event here", "ideal")
                             }
 
                             Event.NavigateToTestFragment2 -> {
-                                Log.e(
-                                    "in event",
-                                    "${findNavController().currentBackStack.value.size}"
-                                )
                                 findNavController().navigate(R.id.test2Fragment)
                             }
                         }
